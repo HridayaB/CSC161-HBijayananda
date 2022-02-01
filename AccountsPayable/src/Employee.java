@@ -72,7 +72,7 @@ public class Employee
 	public String toString ( ) 
 	{
 		return "Employee [firstName=" + firstName + "\n" + "lastName=" + lastName + "\n" + "socialSecurityNumber="
-				+ socialSecurityNumber + "\n" + "]";
+				+ socialSecurityNumber + "\n" + "getPaymentAmount()=" + "]";
 	}
 // end of Auto-generated toString
 
