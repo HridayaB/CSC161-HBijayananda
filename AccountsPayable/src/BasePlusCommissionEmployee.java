@@ -7,20 +7,20 @@ public class BasePlusCommissionEmployee extends CommissionEmployee
 
 	private double basePay;
 	
-// default constructor	
+	// default constructor	
 	public BasePlusCommissionEmployee ( )
 	{
 		basePay = 673.00;
 	} // end of default constructor
 	
-// Auto-generated constructor	
+	// Auto-generated constructor	
 	public BasePlusCommissionEmployee ( double basePay ) 
 	{
 		super ( );
 		this.basePay = basePay;
 	} // end of Auto-generated constructor
 
-// returns the amount the employee will be paid, may vary for different kinds of employees	
+	// returns the amount the employee will be paid, may vary for different kinds of employees	
 		@Override
 		public double getPaymentAmount ( )
 		{
@@ -29,7 +29,7 @@ public class BasePlusCommissionEmployee extends CommissionEmployee
 		} // end of getPaymentAmount
 
 
-// Getters and setters
+	// Getters and setters
 	public double getBasePay ( ) 
 	{
 		return basePay;
@@ -39,9 +39,9 @@ public class BasePlusCommissionEmployee extends CommissionEmployee
 	{
 		this.basePay = basePay;
 	}
-// end of getters and setters
+	// end of getters and setters
 
-// toString methods that now prints the payment amount	
+	// toString methods that now prints the payment amount	
 	@Override
 	public String toString ( ) 
 	{

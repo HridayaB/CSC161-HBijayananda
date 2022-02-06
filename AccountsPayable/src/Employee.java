@@ -10,7 +10,7 @@ public class Employee
 	private long socialSecurityNumber; // Employee's Social Security Number
 	
 	
-// default constructor
+	// default constructor
 	public Employee ( )
 	{
 		firstName = "Hridaya";
@@ -18,7 +18,7 @@ public class Employee
 		socialSecurityNumber = 123456789;
 	} // end of default constructor
 	
-// Auto-generated constructor
+	// Auto-generated constructor
 	public Employee ( String firstName, String lastName, long socialSecurityNumber ) 
 	{
 		super();
@@ -28,14 +28,14 @@ public class Employee
 	} // end of Auto-generated constructor 
 
 
-// returns the amount the employee will be paid, may vary for different kinds of employees
+	// returns the amount the employee will be paid, may vary for different kinds of employees
 	public double getPaymentAmount ( )
 	{
 		double payment = 0.00;
 		return payment;
 	} // end of getPaymentAmount
 
-// Auto-generated getters and setters below
+	// Auto-generated getters and setters below
 	public String getFirstName ( ) 
 	{
 		return firstName;
@@ -65,15 +65,15 @@ public class Employee
 	{
 		this.socialSecurityNumber = socialSecurityNumber;
 	}
-// end of Auto-generated getters and setters
+	// end of Auto-generated getters and setters
 	
-// Auto-generated toString
+	// Auto-generated toString
 	@Override
 	public String toString ( ) 
 	{
 		return "Employee [firstName=" + firstName + "\n" + "lastName=" + lastName + "\n" + "socialSecurityNumber="
 				+ socialSecurityNumber + "\n" + "getPaymentAmount()=" + "]";
 	}
-// end of Auto-generated toString
+	// end of Auto-generated toString
 
 } // end of class Employee

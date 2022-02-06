@@ -9,22 +9,30 @@ public class HourlyEmployee extends Employee
 	private double hourlyWage; // Hourly employee's hourly wage
 	private int hours; // Hourly employee's hours
 	
-// default constructor	
+	// default constructor	
 	public HourlyEmployee ( )
 	{
 		hourlyWage = 0.00;
 		hours = 45;
 	} // end of default constructor
 	
-// Auto-generated constructor
+	// Auto-generated constructor
 	public HourlyEmployee ( double hourlyWage, int hours ) 
 	{
 		super ( );
 		this.hourlyWage = hourlyWage;
 		this.hours = hours;
 	} // end of Auto-generated constructor
+	
+	// default constructor
+	public HourlyEmployee ( String firstName, String lastName, long socialSecurityNumber, double hourlyWage, int hours )
+	{
+		super ( firstName, lastName, socialSecurityNumber );
+		this.hourlyWage = hourlyWage;
+		this.hours = hours;
+	} // end of default constructor
 
-// returns the amount the employee will be paid, may vary for different kinds of employees	
+	// returns the amount the employee will be paid, may vary for different kinds of employees	
 		@Override
 		public double getPaymentAmount ( )
 		{
@@ -32,7 +40,7 @@ public class HourlyEmployee extends Employee
 			return payment;
 		} // end of getPaymentAmount
 	
-// Accessors and mutators	
+	// Accessors and mutators	
 	public double getHourlyWage ( ) 
 	{
 		return hourlyWage;
@@ -49,13 +57,13 @@ public class HourlyEmployee extends Employee
 	{
 		this.hours = hours;
 	}
-// end of accessors and mutators
+	// end of accessors and mutators
 
-// toString that will now print Hourly employee's hourly wage and number of hours	
+	// toString that will now print Hourly employee's hourly wage and number of hours	
 	@Override
 	public String toString() {
-		return "HourlyEmployee [getPaymentAmount()=" + getPaymentAmount() + "\n" + "getFirstName()=" + getFirstName() + "\n" + "getLastName()=" + getLastName()
-				+ "\n" + "getSocialSecurityNumber()=" + getSocialSecurityNumber() + "\n" + "toString()=" + super.toString()
+		return "HourlyEmployee [getFirstName()=" + getFirstName() + "\n" + "getLastName()=" + getLastName()
+				+ "\n" + "getSocialSecurityNumber()=" + getSocialSecurityNumber() + "\n" + "getPaymentAmount()=" + getPaymentAmount() + "\n" + "toString()=" + super.toString()
 				+ "hourlyWage=" + hourlyWage + "\n" + "hours=" + hours + "]";
 	} // end of toString
 	

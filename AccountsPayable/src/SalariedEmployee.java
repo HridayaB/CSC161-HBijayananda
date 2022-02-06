@@ -8,20 +8,27 @@ public class SalariedEmployee extends Employee
  
 	private double weeklySalary; // Salaried employee's weekly salary
  
-// default constructor
+	// default constructor
 	public SalariedEmployee ( )
 	{
 		weeklySalary = 2322;
 	} // end of default constructor
 	
-// Auto-generated constructor
+	// Auto-generated constructor
 	public SalariedEmployee ( double weeklySalary ) 
 	{
-	super ( );
-	this.weeklySalary = weeklySalary;
+		super ( );
+		this.weeklySalary = weeklySalary;
 	} // end of Auto-generated constructor
 
-// returns the amount the employee will be paid, may vary for different kinds of employees	
+	// default constructor
+	public SalariedEmployee ( String firstName, String lastName, long socialSecurityNumber, double weeklySalary )
+	{
+		super ( firstName, lastName, socialSecurityNumber );
+		this.weeklySalary = weeklySalary;
+	} // end of default constructor
+	
+	// returns the amount the employee will be paid, may vary for different kinds of employees	
 	@Override	
 	public double getPaymentAmount ( )
 	{
@@ -29,7 +36,7 @@ public class SalariedEmployee extends Employee
 		return payment;
 	} // end of getPaymentAmount
 
-// Accessors and mutators	
+	// Accessors and mutators	
 	public double getWeeklySalary ( ) 
 	{
 		return weeklySalary;
@@ -39,14 +46,14 @@ public class SalariedEmployee extends Employee
 	{
 		this.weeklySalary = weeklySalary;
 	}
-// end of accessors and mutators
+	// end of accessors and mutators
 	
-// toSring method that now prints the Salaries employee's weekly salary
+	// toSring method that now prints the Salaries employee's weekly salary
 	@Override
 	public String toString ( ) 
 	{
 		return "SalariedEmployee [getFirstName()=" + getFirstName() + "\n" + "getLastName()=" + getLastName() + "\n" + "getSocialSecurityNumber()=" + getSocialSecurityNumber()
-		+ " toString()=" + super.toString() + "\n" + "weeklySalary=" + "$" + weeklySalary + "\n" + "]";
+		+ "getPaymentAmount()=" + getPaymentAmount() + "\n" + "toString()=" + super.toString() + "\n" + "weeklySalary=" + "$" + weeklySalary + "\n" + "]";
 	} // end of toString
 
 } // end of class SalariedEmployee
