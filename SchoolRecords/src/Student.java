@@ -5,6 +5,6 @@
 
 public class Student extends Person
 {
-	protected String [ ] status = { "Freshman", "Sophomore", "Junior", "Senior" };
+	protected final String [ ] STATUS = { "Freshman", "Sophomore", "Junior", "Senior" };
 	
 } // end of class Student

@@ -15,7 +15,7 @@ public class AccountsPayable
 		
 		for ( int i = 0; i < payableEmployees.length; i++)
 		{
-			payableEmployees [ i ]= getEmployeeDetails ( payableEmployees );
+			payableEmployees [ i ] = getEmployeeDetails ( payableEmployees );
 		} // end of for loop
 		
 		Double basePay;
