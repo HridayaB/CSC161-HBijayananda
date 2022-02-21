@@ -7,9 +7,7 @@
  *
  */
 
-import java.lang.*;
-
-public abstract class StringReverser implements CharSequence
+public class StringReverser implements CharSequence
 {
 
 	private String reversedString; // the reversed String
@@ -36,15 +34,15 @@ public abstract class StringReverser implements CharSequence
 		this.reversedString = reversedString;
 	} // end of auto-generated constructor
 
-//	/**
-//	 * @param int i - the index
-//	 * @description Returns the char value at the specified index.
-//	 * @return
-//	 */
-//	public char charAt ( int i )
-//	{
-//		return reversedString.charAt ( reversedString.length ( ) - i - 1 );
-//	} // end of charAt
+	/**
+	 * @param int i - the index
+	 * @description Returns the char value at the specified index.
+	 * @return
+	 */
+	public char charAt ( int i )
+	{
+		return 0;
+	} // end of charAt
 	
 	/**
 	 * @param none
@@ -66,18 +64,9 @@ public abstract class StringReverser implements CharSequence
 	{
 		int strStart = reversedString.length ( ) - end;
 		int strEnd = reversedString.length ( ) - start;
-		return reversedString.subSequence(strStart, strEnd);	
+		return reversedString;	
 	} // end of subSequence
 	
-	/**
-	 * @param none
-	 * @description toCharArray method
-	 * @return null
-	 */
-	public char [ ] toCharArray ( ) 
-	{
-		return null;
-	}
 	
 	/**
 	 * @param none

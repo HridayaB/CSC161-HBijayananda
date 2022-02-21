@@ -8,7 +8,7 @@ public class TestCharSeqInterface
 {
 	public static void main ( String [ ] args ) 
 	{
-		String og = "Hello";
+		String og = "Hell0";
 		char [ ] charArray = og.toCharArray ( );
 		String reversedString = "";
 		for ( int i = charArray.length - 1; i >= 0; i-- )
@@ -17,10 +17,14 @@ public class TestCharSeqInterface
 		} // end of for loop
 		System.out.println ( "Original string: " + og );
 		System.out.println ( "Reversed string: " + reversedString );
-		reversedString.charAt(0);
-		reversedString.length();
-		reversedString.subSequence(0, 0);
-		System.out.println ( reversedString.toString ( ) );
+		System.out.println ( "The char is " + reversedString.charAt ( 0 ) + " at index 0.");
+		System.out.println ( "The char is " + reversedString.charAt ( 1 ) + " at index 1.");
+		System.out.println ( "The char is " + reversedString.charAt ( 2 ) + " at index 2.");
+		System.out.println ( "The char is " + reversedString.charAt ( 3 ) + " at index 3.");
+		System.out.println ( "The char is " + reversedString.charAt ( 4 ) + " at index 4.");
+		System.out.println ( "The length is " + reversedString.length ( ) );
+		System.out.println ( "subsewuence is " + reversedString.subSequence ( 0, 5 ) );
+		System.out.println ( "toString is " + reversedString.toString ( ) );
 	} // end of main
 
 } // end of driver class TestCharSeqInterface
