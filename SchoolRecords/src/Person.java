@@ -70,6 +70,14 @@ public class Person
 		this.emailAddress = emailAddress;
 	}
 	// end of getters and setters
-	
+
+	// toString method
+	@Override
+	public String toString ( ) 
+	{
+		return "Person [name=" + name + "\n" + "address=" + address + "\n" + "phoneNumber=" + phoneNumber + "\n" + "emailAddress="
+				+ emailAddress + "\n" + "getClass()=" + getClass() + "\n" + "hashCode()=" + hashCode() + "\n" + "toString()="
+				+ super.toString() + "]";
+	}
 	
 } // end of class Person

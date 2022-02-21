@@ -63,8 +63,8 @@ public class Employee extends Person
 	@Override
 	public String toString ( ) 
 	{
-		return "Employee [office=" + office + ", salary=" + salary + ", dateHired=" + dateHired + ", name=" + name
-				+ ", address=" + address + ", phoneNumber=" + phoneNumber + ", emailAddress=" + emailAddress + "]";
+		return "Employee [office=" + office + "\n" + "salary=" + salary + "\n" + "dateHired=" + dateHired + "\n" + "name=" + name
+				+ "\n" + "address=" + address + "\n" + "phoneNumber=" + phoneNumber + "\n" + "emailAddress=" + emailAddress + "]";
 	} // end of toString method
 	
 } // end of class Employee

@@ -47,7 +47,7 @@ public class Database
 		for ( int i = 0; i < 9; i++ )
 		{
 			
-			FILE = listOfPerson;
+			FILE.listOfPerson;
 		}
 		return listOfPerson;
 	}

@@ -22,7 +22,7 @@ public class TestSchoolRecords
 		}
 		
 		Database database = new Database ( );
-		for ( Person person : database.readDataBase ( person ) )
+		for ( String person1 : database.readDataBase ( person ) )
 		{
 			
 		}

@@ -31,6 +31,15 @@ public class Staff extends Employee
 		this.principal = principal;
 	}
 	// end of getters and setters
+
+	// toString method
+	@Override
+	public String toString ( ) 
+	{
+		return "Staff [principal=" + principal + "\n" + "office=" + office + "\n" + "salary=" + salary + "\n" + "dateHired="
+				+ dateHired + "\n" + "name=" + name + "\n" + "address=" + address + "\n" + "phoneNumber=" + phoneNumber
+				+ "\n" + "emailAddress=" + emailAddress + "]";
+	} // end of toString method
 	
 	
 } // end of class Staff
