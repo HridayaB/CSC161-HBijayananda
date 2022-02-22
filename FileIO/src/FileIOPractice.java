@@ -3,24 +3,20 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
 
-public class FileIOPractice 
-{
-	
-	public static void main(String[] args) throws IOException
-	{
+public class FileIOPractice {
+
+	public static void main(String[] args) throws IOException {
 		File file = null;
 		PrintWriter printWriter = null;
-		//try
-		//{
-			file = new File ("newfile.txt");
-			if ( !file.exists ( ) )
-			{
-				if ( file.createNewFile ( ) )
-				{
-					System.out.println ("New file: " + file.getName ( ) );
-				}
+		// try
+		// {
+		file = new File("newfile.txt");
+		if (!file.exists()) {
+			if (file.createNewFile()) {
+				System.out.println("New file: " + file.getName());
 			}
-		//}
+		}
+		// }
 //		catch ( IOException e )
 //		{
 //			e.printStackTrace();
@@ -30,15 +26,14 @@ public class FileIOPractice
 //		{
 //			
 //		} executes no matter what but is optional
-		//PrintWriter printWriter = new PrintWriter ( file.getName ( ) );
-		    printWriter = new PrintWriter ( new FileOutputStream ( file.getName ( ), true ) );
-		printWriter.println ( "The moon is not full today. It is not an auspicious day!" );
-		printWriter.println ( "I am feeling great today." );
-		if ( printWriter.checkError ( ) )
-		{
-			System.out.println ( "There were errors during the writing of the file " + file.getName ( ) );
+		// PrintWriter printWriter = new PrintWriter ( file.getName ( ) );
+		printWriter = new PrintWriter(new FileOutputStream(file.getName(), true));
+		printWriter.println("The moon is not full today. It is not an auspicious day!");
+		printWriter.println("I am feeling great today.");
+		if (printWriter.checkError()) {
+			System.out.println("There were errors during the writing of the file " + file.getName());
 		}
-		printWriter.close ( );
+		printWriter.close();
 	} // end of main
 
 }
