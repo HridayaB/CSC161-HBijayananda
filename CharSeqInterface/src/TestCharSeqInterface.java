@@ -23,7 +23,7 @@ public class TestCharSeqInterface
 		System.out.println ( "The char is " + reversedString.charAt ( 3 ) + " at index 3.");
 		System.out.println ( "The char is " + reversedString.charAt ( 4 ) + " at index 4.");
 		System.out.println ( "The length is " + reversedString.length ( ) );
-		System.out.println ( "subsewuence is " + reversedString.subSequence ( 0, 5 ) );
+		System.out.println ( "subsequence is " + reversedString.subSequence ( 0, 5 ) );
 		System.out.println ( "toString is " + reversedString.toString ( ) );
 	} // end of main
 
