@@ -2,7 +2,7 @@ package com.CSC161J.MyBookTree;
 
 import java.util.ArrayList;
 
-public class MyBookNode
+public class MyBookNode implements Comparable < T >
 {
 
 	private String title;
@@ -98,5 +98,12 @@ public class MyBookNode
 		} // end of if statement
 		return ( "\t\t\t" + chapterNum + "." + sectionNum + "." + subSectionNum + " " + title );
 	} // end of toString method
+
+	@Override
+	public int compareTo(T o) 
+	{
+		
+		return 0;
+	}
 	
 } // end of class MyBookNode

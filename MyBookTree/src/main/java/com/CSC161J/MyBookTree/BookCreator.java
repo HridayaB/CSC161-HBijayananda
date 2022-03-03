@@ -29,6 +29,11 @@ public class BookCreator {
 		myBook.addBookNode ( "Chapter 2", 2, 1, 3 );
 		myBook.addBookNode ( "Chapter 1", 1, 4, 2 );
 		myBook.addBookNode ( "Chapter 3", 3, 5, 1 );
+		
+		for ( Object node: myBook )
+		{
+			System.out.println ( node.toString ( ) );
+		}
 
 	}
 

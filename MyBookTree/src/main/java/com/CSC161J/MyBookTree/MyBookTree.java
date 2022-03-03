@@ -39,7 +39,8 @@ public class MyBookTree implements Iterable
 		MyBookNode node = new MyBookNode ( title, chapterNum, sectionNum, subSectionNum );
 		if ( sectionNum == 0 )
 		{
-			root.childNodes.add ( node );
+			root.getChildNodes ( ).add ( node );
+			Collections.sort( root.getChildNodes ( ) );
 			return true;
 		} // end of if statement
 		
@@ -56,7 +57,7 @@ public class MyBookTree implements Iterable
 		} // end of if statement
 		
 		MyBookNode chapterNode = null;
-		for ( MyBookNode chNode: root.childNodes )
+		for ( MyBookNode chNode: root.getChildNodes ( ) )
 		{
 			if ( chapterNum == chNode.getChapterNum ( ) )
 			{
@@ -65,7 +66,7 @@ public class MyBookTree implements Iterable
 			} // end of if statement
 		} // end of enhanced for loop
 		
-		for ( MyBookNode sectionNode: chapterNode.childNodes )
+		for ( MyBookNode sectionNode: chapterNode.getChildNodes ( ) )
 		{
 			if ( sectionNum == sectionNode.getSectionNum ( ) )
 			{
@@ -76,12 +77,11 @@ public class MyBookTree implements Iterable
 		return true;
 	} // end of addBookNode method
 	
-
 	@Override
 	public Iterator iterator ( )
 	{
 		return new BookNodeIterator ( root );
-	}
+	} // end of Iterartor
 	
 	private class BookNodeIterator implements Iterator < MyBookNode > 
 	{
@@ -111,7 +111,7 @@ public class MyBookTree implements Iterable
 			}
 			return node;
 		}
-	}
+	} // end of class BookNodeIterator
 	
 
 } // end of class MyBookTree
