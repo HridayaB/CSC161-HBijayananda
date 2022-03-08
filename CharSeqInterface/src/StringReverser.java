@@ -20,7 +20,7 @@ public class StringReverser implements CharSequence
 	 */
 	public StringReverser ( )
 	{
-		reversedString = "";
+		reversedString = "Hello";
 	} // end of default constructor
 	
 	/**
@@ -37,45 +37,60 @@ public class StringReverser implements CharSequence
 	/**
 	 * @param int i - the index
 	 * @description Returns the char value at the specified index.
-	 * @return
+	 * @return char
 	 */
+	@Override
 	public char charAt ( int i )
 	{
-		return 0;
+		char [ ] val = reversedString.toCharArray ( );
+		if ( ( i < 0 ) || ( i >= val.length ) )
+		{
+			throw new StringIndexOutOfBoundsException ( i );
+		}
+		return val [ i ];
 	} // end of charAt
 	
 	/**
 	 * @param none
 	 * @description Returns the length of this character sequence.
-	 * @return reversedString.length ( )
+	 * @return int
 	 */
+	@Override
 	public int length ( )
 	{
-		return reversedString.length ( );
+		int length = 0;
+		char [ ] strCharArray = reversedString.toCharArray ( );
+		for ( char str : strCharArray )
+		{
+		   length++;
+		} // end of enhanced for loop
+		return length;
 	} // end of length
 	
 	/**
 	 * @param int start - the start of the word
 	 * @param int end - the end of the word
 	 * @description Returns a CharSequence that is a subsequence of this sequence.
-	 * @return reversedString.subSequence(strStart, strEnd)
+	 * @return String
 	 */
-	public CharSequence subSequence ( int start, int end )
+	@Override
+	public String subSequence ( int start, int end )
 	{
 		int strStart = reversedString.length ( ) - end;
 		int strEnd = reversedString.length ( ) - start;
 		return reversedString;	
 	} // end of subSequence
 	
-	
 	/**
 	 * @param none
-	 * @description Returns a string containing the characters in this sequence in the same order as this sequence.
-	 * @return reversedString.toString ( )
+	 * @description toString method
+	 * @return String
 	 */
-	public String toString ( )
+	@Override
+	public String toString ( ) 
 	{
-		return reversedString.toString ( );
-	}
+		return "reversedString = " + reversedString;
+	} // end of toString
 
+	
 } // end of class StringReverser
