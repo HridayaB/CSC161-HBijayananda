@@ -75,13 +75,13 @@ public class WikiPhilosophy {
      * @throws IOException
      * @return elmt
      */
-    public static Element firstValid ( String url ) throws IOException 
+   // public static Element firstValid ( String url ) throws IOException 
     {
-    	Elements paragraph = wf.fetchWikipedia ( url );
-    	WikiParser wp = new WikiParser ( paragraph );
-    	Element elmt = wp.firstLink ( );
-    	print ( "Fetching element from %s", url );
-    	return elmt;
+    //	Elements paragraph = wf.fetchWikipedia ( url );
+    	//WikiParser wp = new WikiParser ( paragraph );
+    	//Element elmt = wp.firstLink ( );
+    //	print ( "Fetching element from %s", url );
+    	//return elmt;
     } // end of firstValid
     
     /**
