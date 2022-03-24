@@ -40,7 +40,7 @@ public class MyBookTree implements Iterable
 		if ( sectionNum == 0 )
 		{
 			root.getChildNodes ( ).add ( node );
-			Collections.sort( root.getChildNodes ( ) );
+			//Collections.sort( root.getChildNodes ( ) );
 			return true;
 		} // end of if statement
 		

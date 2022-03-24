@@ -74,14 +74,14 @@ public class FileTree implements Iterable <FileNode> {
 	private class DepthFirstIterator implements Iterator < FileNode > 
 	{
 		private FileNode root;
-		private Stack < FileNode > nodes;
-		private Stack < Boolean > expanded;
+		private Deque < FileNode > nodes;
+		private Deque < Boolean > expanded;
 		
 		public DepthFirstIterator( FileNode root ) 
 		{
 			this.root = root ;
-			nodes = new Stack < > ( );
-			expanded = new Stack < > ( );
+			nodes = new ArrayDeque < FileNode > ( );
+			expanded = new ArrayDeque < Boolean > ( );
 			if ( root != null )
 			{
 				nodes.push ( root );
