@@ -1,5 +1,6 @@
 package com.CSC161J.MyHashMap;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -122,6 +123,12 @@ public class MyHashMap < K, V > implements Map < K, V >
 		}
 		
 		// Check for load factor has been exceeded and take action // double the buckets //brand new array with double the number of buckets // rehash
+		if ( bucketIndex > loadFactorThreshold )
+		{
+			double loadFactor = ( 1.0 * size ) / INITIAL_NUM_BUCKETS;
+			buckets =  new LinkedList [ 2 * INITIAL_NUM_BUCKETS ];
+			rehash ( );
+		}
 		// own method rehash to take two maps and move things around
 		
 		if ( buckets [ bucketIndex ] == null )
@@ -220,5 +227,27 @@ public class MyHashMap < K, V > implements Map < K, V >
 		}
 		return set;
 	}
+	
+	private void rehash ( )
+	{
+		Set < Map.Entry < K, V > > old = entrySet ( );
+		for ( int i = 0; i < 2 * INITIAL_NUM_BUCKETS; i++ )
+		{
+			old.add ( null );
+		} // end of for loop
+		
+		for ( int i = 0; i < old.size ( ); i++ )
+		{
+			Map.Entry < K, V > entry = ( Map.Entry < K, V > ) get( i );
+			
+			while ( entry != null )
+			{
+				K key = entry.getKey( );
+				V value = entry.getValue ( );
+				put ( key, value );
+			} // end of while loop	
+		} // end of for loop
+		
+	} // end of rehash
 	
 } // end of class MyHashMap
