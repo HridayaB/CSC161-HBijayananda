@@ -20,7 +20,7 @@ public class StringReverser implements CharSequence
 	 */
 	public StringReverser ( )
 	{
-		reversedString = "Hello";
+		reversedString = "";
 	} // end of default constructor
 	
 	/**
