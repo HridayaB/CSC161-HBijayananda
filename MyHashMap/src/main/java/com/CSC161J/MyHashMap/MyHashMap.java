@@ -112,22 +112,29 @@ public class MyHashMap < K, V > implements Map < K, V >
 	{
 		int bucketIndex = Math.abs ( key.hashCode ( ) ) % buckets.length;
 		LinkedList < Entry < K, V > > bucket = buckets [ bucketIndex ];
-		for ( Entry < K, V > entry : bucket )
+		if ( bucket != null )
 		{
-			if ( entry.getKey ( ).equals ( key ) )
+			for ( Entry < K, V > entry : bucket )
 			{
-				V oldValue = entry.getValue ( );
-				entry.value = value;
-				return oldValue;
+				if ( entry.getKey ( ).equals ( key ) )
+				{
+					V oldValue = entry.getValue ( );
+					entry.value = value;
+					return oldValue;
+				}
 			}
 		}
 		
+		
 		// Check for load factor has been exceeded and take action // double the buckets //brand new array with double the number of buckets // rehash
-		if ( bucketIndex > loadFactorThreshold )
+		double loadFactor = ( 1.0 * size ) / buckets.length;
+		if ( loadFactor > loadFactorThreshold )
 		{
-			double loadFactor = ( 1.0 * size ) / INITIAL_NUM_BUCKETS;
-			buckets =  new LinkedList [ 2 * INITIAL_NUM_BUCKETS ];
-			rehash ( );
+			LinkedList < Entry < K, V > > [ ] oldBuckets = buckets;
+			Set < Map.Entry < K, V > > old = entrySet ( );
+			buckets =  new LinkedList [ 2 * buckets.length ];
+			size = 0;
+			rehash ( old );
 		}
 		// own method rehash to take two maps and move things around
 		
@@ -228,19 +235,17 @@ public class MyHashMap < K, V > implements Map < K, V >
 		return set;
 	}
 	
-	private void rehash ( )
-	{
-		Set < Map.Entry < K, V > > old = entrySet ( );
-		for ( int i = 0; i < 2 * INITIAL_NUM_BUCKETS; i++ )
-		{
-			old.add ( null );
-		} // end of for loop
+	/**
+	 * @param
+	 * @return void
+	 * @description rehashing the buckets
+	 */
+	private void rehash ( Set < Map.Entry<K, V>> old)
+	{  
 		
-		for ( int i = 0; i < old.size ( ); i++ )
+		for ( Map.Entry < K, V > entry : old )
 		{
-			Map.Entry < K, V > entry = ( Map.Entry < K, V > ) get( i );
-			
-			while ( entry != null )
+			if ( entry != null )
 			{
 				K key = entry.getKey( );
 				V value = entry.getValue ( );
