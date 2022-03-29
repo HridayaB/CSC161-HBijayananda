@@ -15,6 +15,8 @@ import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 
+import com.CSC161J.Indexer.WikiNodeIterable;
+
 public class WikiNodeExample {
 	
 	public static void main(String[] args) throws IOException {
