@@ -37,6 +37,7 @@ public class CommissionEmployee extends Employee
 	public double getPaymentAmount ( )
 	{
 		double payment = grossSales * commissionRate;
+		System.out.println ( "Commission Employee payment: $" + payment );
 		return payment;
 	} // end of getPaymentAmount
 	
@@ -66,9 +67,9 @@ public class CommissionEmployee extends Employee
 	@Override
 	public String toString ( ) 
 	{
-		return "CommissionEmployee [getFirstName()=" + getFirstName() + "\n" + "getLastName()=" + getLastName()
-				+ "\n" + "getSocialSecurityNumber()=" + getSocialSecurityNumber() + "\n" + "getPaymentAmount()=" + getPaymentAmount() + "\n" +" toString()=" + super.toString() + 
-				"grossSales=" + grossSales + "\n" + "commissionRate=" + commissionRate + "]";
+		return "CommissionEmployee: " + "\n" + "First Name = " + getFirstName() + "\n" + "Last Name = " + getLastName()
+				+ "\n" + "Social Security Number = " + getSocialSecurityNumber() + "\n" + "Payment Amount = " + getPaymentAmount() + "\n" + 
+				"Gross Sales = " + getGrossSales ( ) + "\n" + "Commission Rate=" + getCommissionRate ( );
 	} // end of toSring	
 	
 	

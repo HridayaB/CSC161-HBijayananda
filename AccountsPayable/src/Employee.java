@@ -71,8 +71,8 @@ public class Employee
 	@Override
 	public String toString ( ) 
 	{
-		return "Employee [firstName=" + firstName + "\n" + "lastName=" + lastName + "\n" + "socialSecurityNumber="
-				+ socialSecurityNumber + "\n" + "getPaymentAmount()=" + "]";
+		return "Employee [firstName=" + getFirstName ( ) + "\n" + "lastName=" + getLastName ( ) + "\n" + "socialSecurityNumber="
+				+ getSocialSecurityNumber ( ) + "\n" + "getPaymentAmount()=" + "]";
 	}
 	// end of Auto-generated toString
 

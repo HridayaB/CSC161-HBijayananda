@@ -33,6 +33,7 @@ public class SalariedEmployee extends Employee
 	public double getPaymentAmount ( )
 	{
 		double payment = weeklySalary;
+		System.out.println ( "Salaried Employee payment: $" + payment );
 		return payment;
 	} // end of getPaymentAmount
 
@@ -52,8 +53,8 @@ public class SalariedEmployee extends Employee
 	@Override
 	public String toString ( ) 
 	{
-		return "SalariedEmployee [getFirstName()=" + getFirstName() + "\n" + "getLastName()=" + getLastName() + "\n" + "getSocialSecurityNumber()=" + getSocialSecurityNumber()
-		+ "getPaymentAmount()=" + getPaymentAmount() + "\n" + "toString()=" + super.toString() + "\n" + "weeklySalary=" + "$" + weeklySalary + "\n" + "]";
+		return "SalariedEmployee: " + "\n" + "First Name = " + getFirstName() + "\n" + "Last Name = " + getLastName() + "\n" + "Social Security Number = " + getSocialSecurityNumber()
+		+ "\n" + "Payment Amount = " + getPaymentAmount() + "\n" + "Weekly Salary = " + "$" + getWeeklySalary ( );
 	} // end of toString
 
 } // end of class SalariedEmployee

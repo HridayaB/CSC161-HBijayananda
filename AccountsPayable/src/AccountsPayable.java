@@ -16,6 +16,10 @@ public class AccountsPayable
 		for ( int i = 0; i < payableEmployees.length; i++)
 		{
 			payableEmployees [ i ] = getEmployeeDetails ( payableEmployees );
+			if ( i == 6 )
+			{
+				break;
+			}
 		} // end of for loop
 		
 		Double basePay;
@@ -59,6 +63,7 @@ public class AccountsPayable
 				input.nextLine ( );
 				SalariedEmployee sEmployee = new SalariedEmployee ( firstName, lastName, ssNumber, weeklySalary );
 				employee = sEmployee;
+				System.out.println ( sEmployee.toString ( ) );
 			} // end of if statement
 			else if ( employeeType == 2)
 			{
@@ -70,6 +75,7 @@ public class AccountsPayable
 				input.nextLine ( );
 				CommissionEmployee cEmployee = new CommissionEmployee ( firstName, lastName, ssNumber, grossSales, commissionRate );
 				employee = cEmployee;
+				System.out.println ( cEmployee.toString ( ) );
 			} // end of else if statement
 			else if ( employeeType == 3 )
 			{
@@ -81,7 +87,12 @@ public class AccountsPayable
 				input.nextLine ( );
 				HourlyEmployee hEmployee = new HourlyEmployee ( firstName, lastName, ssNumber, hourlyWage, hours );
 				employee = hEmployee;
+				System.out.println ( hEmployee.toString ( ) );
 			} // end of else if statement
+			if ( i == 6 )
+			{
+				break;
+			}
 		} // end of for loop
 		return employee;
 	} // end of getEmployeeDetails

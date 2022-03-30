@@ -33,12 +33,13 @@ public class HourlyEmployee extends Employee
 	} // end of default constructor
 
 	// returns the amount the employee will be paid, may vary for different kinds of employees	
-		@Override
-		public double getPaymentAmount ( )
-		{
-			double payment = hourlyWage * hours;
-			return payment;
-		} // end of getPaymentAmount
+	@Override
+	public double getPaymentAmount ( )
+	{
+		double payment = hourlyWage * hours;
+		System.out.println ( "Hourly Employee: $" + payment );
+		return payment;
+	} // end of getPaymentAmount
 	
 	// Accessors and mutators	
 	public double getHourlyWage ( ) 
@@ -61,10 +62,11 @@ public class HourlyEmployee extends Employee
 
 	// toString that will now print Hourly employee's hourly wage and number of hours	
 	@Override
-	public String toString() {
-		return "HourlyEmployee [getFirstName()=" + getFirstName() + "\n" + "getLastName()=" + getLastName()
-				+ "\n" + "getSocialSecurityNumber()=" + getSocialSecurityNumber() + "\n" + "getPaymentAmount()=" + getPaymentAmount() + "\n" + "toString()=" + super.toString()
-				+ "hourlyWage=" + hourlyWage + "\n" + "hours=" + hours + "]";
+	public String toString ( ) 
+	{
+		return "HourlyEmployee: " + "\n" + "First Name = " + getFirstName() + "\n" + "Last Name = " + getLastName()
+				+ "\n" + "Social Security Number = " + getSocialSecurityNumber() + "\n" + "Payment Amount = " + getPaymentAmount() + "\n" 
+				+ "Hourly Wage = " + getHourlyWage ( ) + "\n" + "Hours = " + getHours ( );
 	} // end of toString
 	
 } // end of class HourlyEmployee

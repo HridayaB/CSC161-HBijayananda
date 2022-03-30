@@ -21,12 +21,13 @@ public class BasePlusCommissionEmployee extends CommissionEmployee
 	} // end of Auto-generated constructor
 
 	// returns the amount the employee will be paid, may vary for different kinds of employees	
-		@Override
-		public double getPaymentAmount ( )
-		{
-			double payment = basePay + getCommissionRate();
-			return payment;
-		} // end of getPaymentAmount
+	@Override
+	public double getPaymentAmount ( )
+	{
+		double payment = basePay + getPaymentAmount ( );
+		System.out.println ( "Base Plus Commission Employee payment: $" + payment );
+		return payment;
+	} // end of getPaymentAmount
 
 
 	// Getters and setters
