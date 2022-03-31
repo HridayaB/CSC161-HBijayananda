@@ -69,7 +69,7 @@ public class CommissionEmployee extends Employee
 	{
 		return "CommissionEmployee: " + "\n" + "First Name = " + getFirstName() + "\n" + "Last Name = " + getLastName()
 				+ "\n" + "Social Security Number = " + getSocialSecurityNumber() + "\n" + "Payment Amount = " + getPaymentAmount() + "\n" + 
-				"Gross Sales = " + getGrossSales ( ) + "\n" + "Commission Rate=" + getCommissionRate ( );
+				"Gross Sales = " + getGrossSales ( ) + "\n" + "Commission Rate = " + getCommissionRate ( );
 	} // end of toSring	
 	
 	
