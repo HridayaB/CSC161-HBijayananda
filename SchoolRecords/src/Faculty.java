@@ -8,15 +8,15 @@ import java.util.Arrays;
 public class Faculty extends Employee 
 {
 
-	protected String  [ ] RANK = { "Junior", "Senior" };
-	protected String officeHours;
-	protected String rank;
+	private String  [ ] RANK = { "Junior", "Senior" };
+	private String officeHours;
+	private String rank;
 	
 	// default constructor
 	public Faculty ( )
 	{
 		officeHours = "10:30 - 11:00";
-		rank = " ";
+		rank = "Junior";
 	}
 	
 	// Auto-generated constructor
@@ -63,11 +63,11 @@ public class Faculty extends Employee
 	@Override
 	public String toString ( ) 
 	{
-		return "Faculty [RANK=" + Arrays.toString(RANK) + "\n" + "officeHours=" + officeHours + "\n" + "rank=" + rank
-				+ "\n" + "getOffice()=" + getOffice() + "\n" + "getSalary()=" + getSalary() + "\n" + "getDateHired()=" + getDateHired()
-				+ "\n" + "toString()=" + super.toString() + "\n" + "getName()=" + getName() + "\n" + "getAddress()=" + getAddress()
-				+ "\n" + "getPhoneNumber()=" + getPhoneNumber() + "\n" + "getEmailAddress()=" + getEmailAddress()
-				+ "\n" + "getClass()=" + getClass() + "\n" + "hashCode()=" + hashCode() + "]";
+		return "Faculty: " + "\n" + "RANK = " + Arrays.toString(RANK) + "\n" + "Office Hours = " + getOfficeHours ( ) + "\n" + "Rank = " + getRank ( )
+				+ "\n" + "Office = " + getOffice ( ) + "\n" + "Salary = " + getSalary ( ) + "\n" + "Date Hired = " + getDateHired ( )
+				+ "\n" + "Name = " + getName ( ) + "\n" + "Address = " + getAddress ( )
+				+ "\n" + "Phone number = " + getPhoneNumber ( ) + "\n" + "Email Address = " + getEmailAddress ( )
+				+ "\n" + "Class = " + getClass ( );
 	} // end of toString method
 	
 } // end of class Faculty

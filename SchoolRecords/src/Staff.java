@@ -5,12 +5,12 @@
 
 public class Staff extends Employee
 {
-	protected String principal;
+	private String principal;
 	
 	// default constructor
 	public Staff ( )
 	{
-		principal = "ss";
+		principal = "Principle";
 	} // end of default constructor
 
 	// Auto-generated constructor
@@ -36,9 +36,9 @@ public class Staff extends Employee
 	@Override
 	public String toString ( ) 
 	{
-		return "Staff [principal=" + principal + "\n" + "office=" + office + "\n" + "salary=" + salary + "\n" + "dateHired="
-				+ dateHired + "\n" + "name=" + name + "\n" + "address=" + address + "\n" + "phoneNumber=" + phoneNumber
-				+ "\n" + "emailAddress=" + emailAddress + "]";
+		return "Staff: " + "\n" + "Principal = " + getPrincipal ( ) + "\n" + "Office = " + getOffice ( ) + "\n" + "Salary = " + getSalary ( ) + "\n" + "Date Hired = "
+				+ getDateHired ( ) + "\n" + "Name = " + getName ( ) + "\n" + "Address = " + getAddress ( ) + "\n" + "Phone number = " + getPhoneNumber ( )
+				+ "\n" + "Email Address = " + getEmailAddress ( );
 	} // end of toString method
 	
 	

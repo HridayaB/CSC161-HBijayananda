@@ -7,13 +7,13 @@ import java.util.Arrays;
 
 public class Student extends Person
 {
-	protected final String [ ] STATUS = { "Freshman", "Sophomore", "Junior", "Senior" };
-	protected String status;
+	private final String [ ] STATUS = { "Freshman", "Sophomore", "Junior", "Senior" };
+	private String status;
 	
 	// default constructor
 	public Student ( )
 	{
-		status = " ";
+		status = "Freshman";
 	} // end of default constructor
 
 	// Auto-generated constructor
@@ -44,8 +44,8 @@ public class Student extends Person
 	@Override
 	public String toString ( ) 
 	{
-		return "Student [STATUS=" + Arrays.toString(STATUS) + "\n" + "status=" + status + "\n" + "name=" + name + "\n" + "address="
-				+ address + "\n" + "phoneNumber=" + phoneNumber + "\n" + "emailAddress=" + emailAddress + "]";
+		return "Student: " + "\n" + "STATUS = " + Arrays.toString(STATUS) + "\n" + "Status = " + getStatus ( ) + "\n" + "Name = " + getName ( ) + "\n" + "Address = "
+				+ getAddress ( ) + "\n" + "Phone number = " + getPhoneNumber ( ) + "\n" + "Email Address = " + getEmailAddress ( );
 	} // end of toString method
 	
 	

@@ -6,9 +6,9 @@
 public class Employee extends Person 
 {
 
-	protected String office; // the office the employee works at
-	protected double salary; // the salary of the employee
-	protected String dateHired; // the date the employee was hired
+	private String office; // the office the employee works at
+	private double salary; // the salary of the employee
+	private String dateHired; // the date the employee was hired
 	
 	// default constructor
 	public Employee ( )
@@ -63,8 +63,8 @@ public class Employee extends Person
 	@Override
 	public String toString ( ) 
 	{
-		return "Employee [office=" + office + "\n" + "salary=" + salary + "\n" + "dateHired=" + dateHired + "\n" + "name=" + name
-				+ "\n" + "address=" + address + "\n" + "phoneNumber=" + phoneNumber + "\n" + "emailAddress=" + emailAddress + "]";
+		return "Employee: " + "\n" + "Office = " + getOffice ( ) + "\n" + "Salary = " + getSalary ( ) + "\n" + "Date Hired = " + getDateHired ( ) + "\n" + "Name = " + getName ( )
+				+ "\n" + "Address = " + getAddress ( ) + "\n" + "Phone number = " + getPhoneNumber ( ) + "\n" + "Email Address = " + getEmailAddress ( );
 	} // end of toString method
 	
 } // end of class Employee

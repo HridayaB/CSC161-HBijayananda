@@ -5,10 +5,10 @@
 
 public class Person 
 {
-	protected String name;
-	protected String address;
-	protected String phoneNumber;
-	protected String emailAddress;
+	private String name;
+	private String address;
+	private String phoneNumber;
+	private String emailAddress;
 	
 	// default constructor
 	public Person ( )

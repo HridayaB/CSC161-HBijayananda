@@ -5,11 +5,13 @@
 
 import java.io.File;
 import java.io.IOException;
+import java.security.Permission;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Database 
 {
-	final static Person person = null;
+	private Person person = new Person ( );
 	static File FILE = new File ( "PersonDatabase.txt" ); // file name
 	
 	
@@ -36,18 +38,20 @@ public class Database
 	
 	public Database writePerson ( Person person )
 	{
-		person = FILE.getName ( );
+		person.getName ( );
+		person.getAddress ( );
+		person.getPhoneNumber ( );
+		person.getEmailAddress ( );
+		System.out.println ( ( ( List < Person > ) FILE).add ( person ) );
 		return null;
-		
 	}
 	
-	public ArrayList < String > readDataBase ( Person person )
+	public ArrayList < Person > readDataBase ( Person person )
 	{
-		ArrayList < String > listOfPerson = new ArrayList < > ( );
-		for ( int i = 0; i < 9; i++ )
+		ArrayList < Person > listOfPerson = new ArrayList < > ( );
+		for ( Person person1 : listOfPerson )
 		{
-			
-			FILE.listOfPerson;
+			FILE.canRead ( );
 		}
 		return listOfPerson;
 	}
