@@ -3,13 +3,17 @@ package com.CSC161J.MyTreeMap;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
+
 
 public class MyTreeMap < K, V > implements Map < K, V >, Iterable < com.CSC161J.MyTreeMap.MyTreeMap.Node >
 {
 	private int size = 0;
 	private Node root = null;
+	
+	private LinkedList < Node > [ ] rmv;
 	
 	protected class Node
 	{
@@ -22,6 +26,16 @@ public class MyTreeMap < K, V > implements Map < K, V >, Iterable < com.CSC161J.
 		{
 			this.key = key;
 			this.value = value;
+		}
+		
+		public K getKey ( )
+		{
+			return key;
+		}
+		
+		public V getValue ( )
+		{
+			return value;
 		}
 	}
 	
@@ -124,8 +138,57 @@ public class MyTreeMap < K, V > implements Map < K, V >, Iterable < com.CSC161J.
 	@Override
 	public V remove ( Object key ) 
 	{
-		// TODO Auto-generated method stub
+		root = remove1 ( root, key );
+//		Node parent = null;
+//		Node current = root;
+//		
+//		Comparable < ? super K > k = ( Comparable < ? super K > ) key;
+//	
+//		while ( key != null )
+//		{
+//			if ( k.compareTo ( current.key ) < 0 )
+//			{
+//				parent = current;
+//				current = current.left;
+//				parent = null;
+//				parent = current.left;
+//			}
+//			if ( k.compareTo ( current.key ) > 0 )
+//			{
+//				parent = current;
+//				current = current.right;
+//				parent = null;
+//				parent = current.right;
+//			}
+//			
+//		}
+//		size--;
 		return null;
+	}
+	
+	public Node remove1 ( Node root, Object key )
+	{
+		Node parent = null;
+		Node current = root;
+		
+		Comparable < ? super K > k = ( Comparable < ? super K > ) key;
+		
+		if ( root == null ) { return null; }
+		
+		if ( k.compareTo ( current.key ) < 0 )
+		{
+			root.left = remove1 ( root.left, key );
+		}
+		else if ( k.compareTo ( current.key ) > 0 )
+		{
+			root.right = remove1 ( root.right, key );
+		}
+		else
+		{
+			if ( root.left == null ) { return root.right; }
+			else if ( root.right == null ) { return root.left; }
+		}
+		return root;
 	}
 
 	@Override

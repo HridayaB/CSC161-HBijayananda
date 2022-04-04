@@ -13,7 +13,7 @@ public class Student extends Person
 	// default constructor
 	public Student ( )
 	{
-		status = "Freshman";
+		status = "";
 	} // end of default constructor
 
 	// Auto-generated constructor

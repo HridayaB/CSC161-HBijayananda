@@ -26,6 +26,8 @@ public class MyTreeMapTest
 		map.put ( 13, 13 );
 		map.put ( 15, 15 );
 		
+		map.remove ( 9 );
+		
 		for ( Node node : map )
 		{
 			System.out.print ( node.key.toString ( ) + " " );

@@ -5,7 +5,7 @@
 
 import java.io.File;
 import java.io.IOException;
-import java.security.Permission;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +13,15 @@ public class Database
 {
 	private Person person = new Person ( );
 	static File FILE = new File ( "PersonDatabase.txt" ); // file name
-	
+	static java.io.File 
+
+	private PrintWriter printWriter = new PrintWriter ( outFile );
 	
 	public Database ( )
 	{
 		try
 		{
-			FILE = new File ("PersonDatabase.txt");
+			FILE = new File ( "PersonDatabase.txt" );
 			if ( !FILE.exists ( ) )
 			{
 				if ( FILE.createNewFile ( ) )
@@ -42,7 +44,7 @@ public class Database
 		person.getAddress ( );
 		person.getPhoneNumber ( );
 		person.getEmailAddress ( );
-		System.out.println ( ( ( List < Person > ) FILE).add ( person ) );
+		System.out.println ( ( ( List < Person > ) FILE ).add ( person ) );
 		return null;
 	}
 	

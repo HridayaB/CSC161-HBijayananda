@@ -13,9 +13,9 @@ public class Employee extends Person
 	// default constructor
 	public Employee ( )
 	{
-		office = "ss";
-		salary = 11.11;
-		dateHired = "02/02/22";
+		office = "";
+		salary = 0.00;
+		dateHired = "";
 	} // end of default constructor
 
 	// Auto-generated constructor

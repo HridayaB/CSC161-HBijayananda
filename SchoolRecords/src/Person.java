@@ -13,10 +13,10 @@ public class Person
 	// default constructor
 	public Person ( )
 	{
-		name = "John Smith";
-		address = "373 djje dr.";
-		phoneNumber = "9703395728";
-		emailAddress = "JSmith@gmail.com";
+		name = "";
+		address = "";
+		phoneNumber = "";
+		emailAddress = "";
 	} // end of default constructor
 
 	// Auto-generated constructor

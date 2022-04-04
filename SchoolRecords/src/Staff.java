@@ -5,30 +5,30 @@
 
 public class Staff extends Employee
 {
-	private String principal;
+	private String title;
 	
 	// default constructor
 	public Staff ( )
 	{
-		principal = "Principle";
+		title = "";
 	} // end of default constructor
 
 	// Auto-generated constructor
-	public Staff ( String principal ) 
+	public Staff ( String title ) 
 	{
 		super();
-		this.principal = principal;
+		this.title = title;
 	} // end of auto-generated constructor 
 
 	// getters and setters
-	public String getPrincipal ( ) 
+	public String getTitle ( ) 
 	{
-		return principal;
+		return title;
 	}
 
-	public void setPrincipal ( String principal ) 
+	public void setTitle ( String title ) 
 	{
-		this.principal = principal;
+		this.title = title;
 	}
 	// end of getters and setters
 
@@ -36,7 +36,7 @@ public class Staff extends Employee
 	@Override
 	public String toString ( ) 
 	{
-		return "Staff: " + "\n" + "Principal = " + getPrincipal ( ) + "\n" + "Office = " + getOffice ( ) + "\n" + "Salary = " + getSalary ( ) + "\n" + "Date Hired = "
+		return "Staff: " + "\n" + "Title = " + getTitle ( ) + "\n" + "Office = " + getOffice ( ) + "\n" + "Salary = " + getSalary ( ) + "\n" + "Date Hired = "
 				+ getDateHired ( ) + "\n" + "Name = " + getName ( ) + "\n" + "Address = " + getAddress ( ) + "\n" + "Phone number = " + getPhoneNumber ( )
 				+ "\n" + "Email Address = " + getEmailAddress ( );
 	} // end of toString method
