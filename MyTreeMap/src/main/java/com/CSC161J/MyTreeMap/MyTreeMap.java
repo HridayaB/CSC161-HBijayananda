@@ -150,14 +150,14 @@ public class MyTreeMap < K, V > implements Map < K, V >, Iterable < com.CSC161J.
 //			{
 //				parent = current;
 //				current = current.left;
-//				parent = null;
+//				current = null;
 //				parent = current.left;
 //			}
 //			if ( k.compareTo ( current.key ) > 0 )
 //			{
 //				parent = current;
 //				current = current.right;
-//				parent = null;
+//				current = null;
 //				parent = current.right;
 //			}
 //			
@@ -168,7 +168,7 @@ public class MyTreeMap < K, V > implements Map < K, V >, Iterable < com.CSC161J.
 	
 	public Node remove2 ( Node root, Object key )
 	{
-		Node parent = null;
+//		Node parent = null;
 		Node current = root;
 		
 		Comparable < ? super K > k = ( Comparable < ? super K > ) key;
