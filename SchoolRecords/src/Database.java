@@ -4,6 +4,9 @@
  */
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,11 +16,9 @@ public class Database
 {
 	private Person person = new Person ( );
 	static File FILE = new File ( "PersonDatabase.txt" ); // file name
-	static java.io.File 
-
-	private PrintWriter printWriter = new PrintWriter ( outFile );
+	private PrintWriter printWriter = new PrintWriter ( new FileOutputStream ( FILE.getName ( ), true) );
 	
-	public Database ( )
+	public Database ( ) throws FileNotFoundException
 	{
 		try
 		{
@@ -44,7 +45,7 @@ public class Database
 		person.getAddress ( );
 		person.getPhoneNumber ( );
 		person.getEmailAddress ( );
-		System.out.println ( ( ( List < Person > ) FILE ).add ( person ) );
+		printWriter.println ( ( ( List < Person > ) FILE ).add ( person ) );
 		return null;
 	}
 	
@@ -54,6 +55,7 @@ public class Database
 		for ( Person person1 : listOfPerson )
 		{
 			FILE.canRead ( );
+			printWriter.println ( person );
 		}
 		return listOfPerson;
 	}

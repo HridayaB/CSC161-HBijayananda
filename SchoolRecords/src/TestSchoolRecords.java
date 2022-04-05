@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 /*
@@ -8,9 +10,8 @@ import java.io.PrintWriter;
 public class TestSchoolRecords 
 {
 
-	public static void main(String[] args) 
+	public static void main(String[] args) throws FileNotFoundException  
 	{
-		PrintWriter printWriter = null;
 		Person person = new Person ( );
 //		for ( int i = 0; i < 6; i++ )
 //		{
@@ -63,7 +64,7 @@ public class TestSchoolRecords
 		Staff staff1 = new Staff ( );
 		staff1.setName ( "Josh Hidges" );
 		staff1.setAddress ( "7539 Burning house Dr." );
-		staff1.setPhoneNumber ( "0147258369" );
+		staff1.setPhoneNumber ( "0147258569" );
 		staff1.setEmailAddress ( "Josh_Hidges@gmail.com" );
 		staff1.setOffice ( "Security" );
 		staff1.setSalary ( 67000.00 );
@@ -81,14 +82,20 @@ public class TestSchoolRecords
 		staff1.setTitle ( "Principal" );
 		
 		System.out.println ( student1.toString ( ) );
+		System.out.println ( );
 		System.out.println ( student2.toString ( ) );
+		System.out.println ( );
 		System.out.println ( faculty1.toString ( ) );
+		System.out.println ( );
 		System.out.println ( faculty2.toString ( ) );
+		System.out.println ( );
 		System.out.println ( staff1.toString ( ) );
+		System.out.println ( );
 		System.out.println ( staff2.toString ( ) );
+		System.out.println ( );
 		
+
 		Database database = new Database ( );
-		
 		for ( Person psn : database.readDataBase ( person ) )
 		{
 			System.out.println ( student1.toString ( ) );
@@ -99,8 +106,6 @@ public class TestSchoolRecords
 			System.out.println ( staff2.toString ( ) );
 		}
 		
-		
-
 	} // end of main
 
 } // end of driver class TestSchoolRecords

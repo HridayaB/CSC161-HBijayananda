@@ -52,7 +52,8 @@ public class WikiPhilosophy {
     		{
     			visited.add ( url );
     		} // end of else statement
-    		Element elt = firstValid ( url );
+    		Element elt = null;
+    		
 			if ( elt == null ) 
 			{
 				System.out.println ( "Failure:( No valid links." );
@@ -67,28 +68,12 @@ public class WikiPhilosophy {
 				System.out.println( "Success!" );
 				break;
 			} // end of if statement
+			if ( i > limit )
+			{
+				System.out.println ( "Exceeded the limit." );
+				break;
+			}
     	} // end of for loop
     } // end of testConjecture
     
-    /**
-     * @param String url
-     * @throws IOException
-     * @return elmt
-     */
-    public static Element firstValid ( String url ) throws IOException 
-    {
-    	Elements paragraph = wf.fetchWikipedia ( url );
-    	Element elmt = wp.firstLink ( );
-    	print ( "Fetching element from %s", url );
-    	return elmt;
-    } // end of firstValid
-    
-    /**
-     * @param msg
-     * @param args
-     */
-    private static void print ( String message, Object args ) 
-    {
-		System.out.println ( String.format ( message, args ) );
-	}
 }

@@ -138,7 +138,7 @@ public class MyTreeMap < K, V > implements Map < K, V >, Iterable < com.CSC161J.
 	@Override
 	public V remove ( Object key ) 
 	{
-		root = remove1 ( root, key );
+		root = remove2 ( root, key );
 //		Node parent = null;
 //		Node current = root;
 //		
@@ -166,7 +166,7 @@ public class MyTreeMap < K, V > implements Map < K, V >, Iterable < com.CSC161J.
 		return null;
 	}
 	
-	public Node remove1 ( Node root, Object key )
+	public Node remove2 ( Node root, Object key )
 	{
 		Node parent = null;
 		Node current = root;
@@ -177,11 +177,11 @@ public class MyTreeMap < K, V > implements Map < K, V >, Iterable < com.CSC161J.
 		
 		if ( k.compareTo ( current.key ) < 0 )
 		{
-			root.left = remove1 ( root.left, key );
+			root.left = remove2 ( root.left, key );
 		}
 		else if ( k.compareTo ( current.key ) > 0 )
 		{
-			root.right = remove1 ( root.right, key );
+			root.right = remove2 ( root.right, key );
 		}
 		else
 		{
