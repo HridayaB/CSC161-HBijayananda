@@ -1,10 +1,15 @@
 package comCSC161J.GettingToPhilosophy;
 
 import java.io.IOException;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 
 public class WikiPhilosophy {
@@ -39,10 +44,12 @@ public class WikiPhilosophy {
      * @param source
      * @throws IOException
      */
-    public static void testConjecture(String destination, String source, int limit) throws IOException {
+    public static void testConjecture ( String destination, String source, int limit ) throws IOException 
+    {
         // TODO: FILL THIS IN!
     	String url = source;
-    	for ( int i = 0; i < limit; i++)
+    	Deque < String > parenStack = new ArrayDeque < String > (  );
+    	for ( int i = 0; i < limit; i++ )
     	{
     		if ( visited.contains ( url ) )
     		{
@@ -52,20 +59,44 @@ public class WikiPhilosophy {
     		{
     			visited.add ( url );
     		} // end of else statement
-    		Element elt = null;
-    		
-			if ( elt == null ) 
-			{
-				System.out.println ( "Failure:( No valid links." );
-				return;
-			} // end if if statement
-			
-			System.out.println ( "//-" + elt.text ( ) + "-//" );
-			url = elt.attr ( "abs:href" );
+    		int openParen = 0;
+    		Elements paragraphs = wf.fetchWikipedia ( url );
+    		 		
+    		for ( Element para : paragraphs )
+    		{
+    			Iterable < Node > iter = new WikiNodeIterable ( para );
+    			for (  Node node : iter )
+    			{
+    				if ( node instanceof TextNode)
+	    			{
+	    				StringTokenizer st = new StringTokenizer ( ( ( TextNode ) node ).text ( ), "( )" );
+	    				while ( st.hasMoreTokens ( ) )
+	    				{
+	    					String tkn = st.nextToken ( );
+	    					if ( tkn.equals ( "(" ) )
+	    					{
+	    						parenStack.push ( tkn );
+	    					}
+	    					else if ( tkn.equals ( ")" ) )
+	    					{
+	    						parenStack.pop ( );
+	    					}
+	    				}
+	    			}
+    				String link = node.attr( "href" );
+    				if ( link != null && !link.isEmpty ( ) && ( link.charAt ( 0 ) == '#' && openParen == 0 ) )
+	    			{
+	    				testConjecture ( link, url, 10 );
+	    			}
+    			}
+    				
+    			
+    		}
 			
 			if ( url.equals ( destination ) ) 
 			{
-				System.out.println( "Success!" );
+				System.out.println ( );
+				System.out.println ( "Success! ^◡^ " );
 				break;
 			} // end of if statement
 			if ( i > limit )
@@ -73,6 +104,8 @@ public class WikiPhilosophy {
 				System.out.println ( "Exceeded the limit." );
 				break;
 			}
+			System.out.println ( url );
+			System.out.println ( String.format ( url, null ) );
     	} // end of for loop
     } // end of testConjecture
     

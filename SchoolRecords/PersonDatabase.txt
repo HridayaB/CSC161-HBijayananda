@@ -1,0 +1,36 @@
+class Student
+John Smith
+1234 Mathews St.
+8874567945
+JSmith@gmail.com
+
+class Student
+Pi Smith
+314 Math St.
+1234567890
+3.14@gmail.com
+
+class Faculty
+Jennie Timbers
+5344 Rocky grass Dr.
+5467891230
+berber@gmail.com
+
+class Faculty
+Nathan Owens
+4684 Wet roads St.
+9632587410
+NO@gmail.com
+
+class Staff
+Josh Hidges
+7539 Burning house Dr.
+0147258569
+Josh_Hidges@gmail.com
+
+class Staff
+Gwen Stacy
+7539 Falling St.
+1593574862
+freefall@gmail.com
+

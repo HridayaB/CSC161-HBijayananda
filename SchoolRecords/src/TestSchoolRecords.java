@@ -13,17 +13,7 @@ public class TestSchoolRecords
 	public static void main(String[] args) throws FileNotFoundException  
 	{
 		Person person = new Person ( );
-//		for ( int i = 0; i < 6; i++ )
-//		{
-//			Person person1 = new Person ( );
-//		}
-//		
-//		for ( int i = 0; i < 2; i++ )
-//		{
-//			Student student = new Student ( );
-//			Faculty faculty = new Faculty ( );
-//			Staff staff = new Staff ( );
-//		}
+		Database database = new Database ( );
 		
 		Student student1 = new Student ( );
 		student1.setName ( "John Smith" );
@@ -31,6 +21,7 @@ public class TestSchoolRecords
 		student1.setPhoneNumber ( "8874567945" );
 		student1.setEmailAddress ( "JSmith@gmail.com" );
 		student1.setStatus ( "Freshman" );
+		database.writePerson ( student1 );
 		
 		Student student2 = new Student ( );
 		student2.setName ( "Pi Smith" );
@@ -38,7 +29,8 @@ public class TestSchoolRecords
 		student2.setPhoneNumber ( "1234567890" );
 		student2.setEmailAddress ( "3.14@gmail.com" );
 		student2.setStatus ( "Sophomore" );
-		
+		database.writePerson ( student2 );
+				
 		Faculty faculty1 = new Faculty ( );
 		faculty1.setName ( "Jennie Timbers" );
 		faculty1.setAddress ( "5344 Rocky grass Dr." );
@@ -49,6 +41,7 @@ public class TestSchoolRecords
 		faculty1.setDateHired ( "02/11/2009" );
 		faculty1.setRank ( "Senior" );
 		faculty1.setOfficeHours ( "10:30 - 2:00" );
+		database.writePerson ( faculty1 );
 		
 		Faculty faculty2 = new Faculty ( );
 		faculty2.setName ( "Nathan Owens" );
@@ -60,6 +53,7 @@ public class TestSchoolRecords
 		faculty2.setDateHired ( "10/19/2016" );
 		faculty2.setRank ( "Junior" );
 		faculty2.setOfficeHours ( "09:00 - 5:00" );
+		database.writePerson ( faculty2 );
 		
 		Staff staff1 = new Staff ( );
 		staff1.setName ( "Josh Hidges" );
@@ -70,40 +64,30 @@ public class TestSchoolRecords
 		staff1.setSalary ( 67000.00 );
 		staff1.setDateHired ( "05/26/2011" );
 		staff1.setTitle ( "Armed Security Officer" );
+		database.writePerson ( staff1 );
 		
 		Staff staff2 = new Staff ( );
-		staff1.setName ( "Gwen Stacy" );
-		staff1.setAddress ( "7539 Falling St." );
-		staff1.setPhoneNumber ( "1593574862" );
-		staff1.setEmailAddress ( "freefall@gmail.com" );
-		staff1.setOffice ( "Administration" );
-		staff1.setSalary ( 77000.00 );
-		staff1.setDateHired ( "08/06/2015" );
-		staff1.setTitle ( "Principal" );
+		staff2.setName ( "Gwen Stacy" );
+		staff2.setAddress ( "7539 Falling St." );
+		staff2.setPhoneNumber ( "1593574862" );
+		staff2.setEmailAddress ( "freefall@gmail.com" );
+		staff2.setOffice ( "Administration" );
+		staff2.setSalary ( 77000.00 );
+		staff2.setDateHired ( "08/06/2015" );
+		staff2.setTitle ( "Principal" );
+		database.writePerson ( staff2 );		
 		
-		System.out.println ( student1.toString ( ) );
-		System.out.println ( );
-		System.out.println ( student2.toString ( ) );
-		System.out.println ( );
-		System.out.println ( faculty1.toString ( ) );
-		System.out.println ( );
-		System.out.println ( faculty2.toString ( ) );
-		System.out.println ( );
-		System.out.println ( staff1.toString ( ) );
-		System.out.println ( );
-		System.out.println ( staff2.toString ( ) );
-		System.out.println ( );
-		
-
-		Database database = new Database ( );
 		for ( Person psn : database.readDataBase ( person ) )
 		{
-			System.out.println ( student1.toString ( ) );
-			System.out.println ( student2.toString ( ) );
-			System.out.println ( faculty1.toString ( ) );
-			System.out.println ( faculty2.toString ( ) );
-			System.out.println ( staff1.toString ( ) );
-			System.out.println ( staff2.toString ( ) );
+			System.out.println ( psn.toString ( ) );
+		}
+		for ( Person psn : database.readDataBase ( student2 ) )
+		{
+			System.out.println ( psn.toString ( ) );
+		}
+		for ( Person psn : database.readDataBase ( faculty1 ) )
+		{
+			System.out.println ( psn.toString ( ) );
 		}
 		
 	} // end of main
