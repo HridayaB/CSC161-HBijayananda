@@ -7,6 +7,9 @@ import java.util.Deque;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
@@ -48,65 +51,87 @@ public class WikiPhilosophy {
     {
         // TODO: FILL THIS IN!
     	String url = source;
-    	Deque < String > parenStack = new ArrayDeque < String > (  );
-    	for ( int i = 0; i < limit; i++ )
-    	{
-    		if ( visited.contains ( url ) )
-    		{
-    			return;
-    		} // end of if statement
-    		else
-    		{
-    			visited.add ( url );
-    		} // end of else statement
-    		int openParen = 0;
-    		Elements paragraphs = wf.fetchWikipedia ( url );
-    		 		
-    		for ( Element para : paragraphs )
-    		{
-    			Iterable < Node > iter = new WikiNodeIterable ( para );
-    			for (  Node node : iter )
-    			{
-    				if ( node instanceof TextNode)
-	    			{
-	    				StringTokenizer st = new StringTokenizer ( ( ( TextNode ) node ).text ( ), "( )" );
-	    				while ( st.hasMoreTokens ( ) )
-	    				{
-	    					String tkn = st.nextToken ( );
-	    					if ( tkn.equals ( "(" ) )
-	    					{
-	    						parenStack.push ( tkn );
-	    					}
-	    					else if ( tkn.equals ( ")" ) )
-	    					{
-	    						parenStack.pop ( );
-	    					}
-	    				}
-	    			}
-    				String link = node.attr( "href" );
-    				if ( link != null && !link.isEmpty ( ) && ( link.charAt ( 0 ) == '#' && openParen == 0 ) )
-	    			{
-	    				testConjecture ( link, url, 10 );
-	    			}
-    			}
-    				
-    			
-    		}
+    	boolean linkFound = false;
+    	String link = null;
+//    	Deque < String > parenStack = new ArrayDeque < String > ( );
+    
+		Connection conn = Jsoup.connect ( url ); // download and parse the document
+		Document doc = conn.get ( );
+		Element content = doc.getElementById("mw-content-text"); // select the content text and pull out the paragraphs.
+		Elements paras = content.select ( "p" );
+		
+		//Elements paragraphs = wf.fetchWikipedia ( url );
+		 		
+		for ( Element para : paras )
+		{
+			int openParen = 0;
 			
-			if ( url.equals ( destination ) ) 
+			WikiNodeIterable iter = new WikiNodeIterable ( para );
+			for (  Node node : iter )
 			{
-				System.out.println ( );
-				System.out.println ( "Success! ^◡^ " );
+				if ( node instanceof TextNode)
+    			{
+					String text = node.toString ( );
+					int i = 0; // first index
+					int j = 0; // second index
+					while ( i != -1 )
+					{
+						i = text.indexOf ( "(", j );
+						if ( i != -1 )
+						{
+							openParen++;
+						}
+						j = i + 1;
+					}
+					i = 0;
+					j = 0;
+					while ( i != -1 )
+					{
+						i = text.indexOf ( ")", j );
+						if ( i != -1 )
+						{
+							openParen--;
+						}
+						j = i + 1;
+					}
+//    				StringTokenizer st = new StringTokenizer ( ( ( TextNode ) node ).text ( ), "( )" );
+//    				while ( st.hasMoreTokens ( ) )
+//    				{
+//    					String tkn = st.nextToken ( );
+//    					if ( tkn.equals ( "(" ) )
+//    					{
+//    						parenStack.push ( tkn );
+//    					} // end of if statement
+//    					else if ( tkn.equals ( ")" ) )
+//    					{
+//    						parenStack.pop ( );
+//    					} // end of else if statement
+//    				} // end of while loop
+    			} // end of if statement
+				
+				link = node.attr ( "href" );
+				if ( link != null && !link.isEmpty ( ) && ( link.charAt ( 0 ) != '#' && openParen == 0 ) )
+    			{
+    				System.out.println ( "https://en.wikipedia.org" + link );
+    				link = "https://en.wikipedia.org" + link;
+    				linkFound = true;
+    				break;
+    			} // end of if statement
+			} // end of enhanced for loop
+			if ( linkFound )
+			{
 				break;
 			} // end of if statement
-			if ( i > limit )
-			{
-				System.out.println ( "Exceeded the limit." );
-				break;
-			}
-			System.out.println ( url );
-			System.out.println ( String.format ( url, null ) );
-    	} // end of for loop
+		} // end of enhanced for loop
+		
+		if ( url.equals ( destination ) ) 
+		{
+			System.out.println ( );
+			System.out.println ( "Success! ^◡^" );
+			return;
+		} // end of if statement
+		
+		testConjecture ( destination, link, --limit );			
     } // end of testConjecture
     
 }
