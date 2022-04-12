@@ -145,13 +145,14 @@ public class MyAVLTree < K, V > implements Map < K, V >, Iterable < com.CSC161J.
 //			{
 //				balanceLR ( newNode, parent ); // LR rotation, right then left rotation
 //			}
-			//path = null;
 			updateHeight ( newNode );
+			//path.clear ( );
+			
 		}
 		else
 		{
 			parent.right = newNode;
-			int balanceFactor = balanceFactor ( parent );
+			int balanceFactor = balanceFactor ( newNode );
 			path.add ( parent );
 //			if ( balanceFactor >= 0 )
 //			{
@@ -161,13 +162,14 @@ public class MyAVLTree < K, V > implements Map < K, V >, Iterable < com.CSC161J.
 //			{
 //				balanceRL ( newNode, parent ); // RL rotation, left then right rotation
 //			}
-			//path = null;
 			updateHeight ( newNode );
+			//path.clear ( );
+			
 		}
 		size++;
 		
 		balancePath ( newNode );
-		//path = null;
+		path.clear ( );
 		return value;
 	}
 
