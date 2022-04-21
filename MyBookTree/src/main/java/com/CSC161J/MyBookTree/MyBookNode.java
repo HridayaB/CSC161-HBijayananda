@@ -98,5 +98,11 @@ public class MyBookNode implements Comparable < T >
 		} // end of if statement
 		return ( "\t\t\t" + chapterNum + "." + sectionNum + "." + subSectionNum + " " + title );
 	} // end of toString method
+
+	@Override
+	public int compareTo(T o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 } // end of class MyBookNode

@@ -1,6 +1,7 @@
 package com.CSC161J.Exam2;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -20,11 +21,11 @@ import org.w3c.dom.Node;
 public class FileTree implements Iterable <FileNode> {
 
 	private FileNode root;
-
+	private int height;
 	
 	public FileTree(String path) {
 		root = new FileNode(path);
-		buildTree(root);
+		buildTree(root, height);
 	}
 
 	/**
@@ -47,30 +48,48 @@ public class FileTree implements Iterable <FileNode> {
 	 * @param fileNode
 	 * @return 
 	 */
-	private void buildTree ( FileNode fileNode ) 
+	private void buildTree ( FileNode fileNode, int height ) 
 	{
-		List < FileNode > nodeList = new ArrayList < FileNode > ( );
-		List < FileNode > childNodes = new ArrayList < FileNode > ( );
-		List < FileNode > rootNode = new ArrayList < FileNode > ( );
+		height = 0;
+		List < FileNode > childNodesList = new ArrayList < FileNode > ( );
+		
 		String filePath = "C:\\Users\\HRBCR\\Downloads\\FileSizeTest";
 		File file = new File ( filePath );
+		FileNode node = new FileNode ( file );
+		String fPath = file.getAbsolutePath ( );
+		//System.out.println ( fPath );
+	
 		
-		for ( FileNode node : nodeList )
+	
+		for ( FileNode node1 : root.getChildNodes ( ) )
 		{
-			if ( node.equals ( file ) )
+			File [ ] files = file.listFiles ( );
+			//System.out.println ( node.toString ( ) );
+		
+			for ( File file1 : files )
 			{
-				rootNode.add ( node );
+				node1.getChildNodes ( ).add ( node );
+				childNodesList.add ( node );
+				buildTree ( node, height - 1 );
 			}
-			for ( FileNode node1 : rootNode )
-			{
-				File [ ] files = file.listFiles ( );
-				childNodes.add ( fileNode );
-				buildTree ( node1 );
-				System.out.println ( fileNode.getFileSize());
-				//childNodes.add ( buildTree ( node1 ) );
-			}
-			
+		
 		}
+//		for ( FileNode node1 : nodeList )
+//		{
+//			if ( node1.equals ( file ) )
+//			{
+//				rootNode.add ( node1 );
+//			}
+//			for ( FileNode node2 : rootNode )
+//			{
+//				File [ ] files = file.listFiles ( );
+//				childNodes.add ( fileNode );
+//				buildTree ( node2 );
+//				System.out.println ( node.toString ( ) );
+//				//childNodes.add ( buildTree ( node1 ) );
+//			}
+//			
+//		}
 		
 	} // end of buildTree
 	
