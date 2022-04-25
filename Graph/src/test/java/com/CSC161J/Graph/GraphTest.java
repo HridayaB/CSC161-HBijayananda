@@ -16,9 +16,14 @@ public class GraphTest
 		
 		int [ ] [ ] edges = { { 0, 1 }, {1, 0}, { 1, 3 }, { 3, 1 }, { 1, 4 }, { 4, 1 }, { 0, 3 }, { 3, 0 } };
 		
-		Graph < Vertex > graph1 = new Graph ( vertices, edges );
-		
+		Graph < Vertex > graph1 = new Graph ( vertices, edges, 8 );
 		graph1.printEdges ( );
+		
+		graph1.dfs ( edges, 0 );
+		
+		graph1.bfs ( edges, 2 );
+		
+		
 	}
 
 }
