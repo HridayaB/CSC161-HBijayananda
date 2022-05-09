@@ -16,7 +16,7 @@ public class Graph < V >
 	protected List < V > verticesList = new ArrayList < V > ( ); // List of vertices
 	protected List < List < Edge > > neighbours = new ArrayList ( ); // List of lists
 	protected int numV; // num of vertices
-	protected List < List < Edge > > edge;
+	protected Graph < V >.Edge [ ] edge;
 	protected Map < Integer, Integer > parent;
 	
 	public class Edge implements Comparable < Edge >
@@ -70,7 +70,7 @@ public class Graph < V >
 		createAdjacencyLists ( edges, verticesList.size ( ) );
 		parent = new HashMap < > ( );
 		int numE = 9;
-		edge =  new ArrayList < > (numE );
+		
 	}
 	
 	public boolean addVertex ( V vertex )
@@ -208,7 +208,7 @@ public class Graph < V >
 		
 		while ( map.size ( ) != node - 1 )
 		{
-			Edge nextEdge = edge [ index++ ];
+			Edge nextEdge = (Graph<V>.Edge) verticesList.get ( index++ );
 			int x = search ( nextEdge.source );
 			int y = search ( nextEdge.destination );
 			if ( x != y )
